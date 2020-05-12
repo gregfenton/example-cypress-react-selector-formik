@@ -2,6 +2,8 @@
 
 The goal of this project is to give an example of how to use `cy.react()` with a non-trivial but commonly used set of React components.
 
+![screen shot](screenshot/cypress_run_1.png)
+
 ### Run this example
 1. `git clone https://github.com/gregfenton/example-cypress-react-selector-formik.git`
 1. `cd example-cypress-react-selector-formik`
