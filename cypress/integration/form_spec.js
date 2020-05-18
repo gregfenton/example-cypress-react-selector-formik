@@ -24,7 +24,7 @@ describe('Use cypress react selector to test the form', () => {
     cy.react('MyTextInput', { field: { name: 'password' } }).type(PASSWORD);
   });
 
-  it('validate email value prop runtime', () => {
+  it('validate email field\'s properties', () => {
     cy.getReact('MyTextInput', { field: { name: 'email' } })
       .getProps('field.value')
       .should('eq', EMAILADDRESS);
