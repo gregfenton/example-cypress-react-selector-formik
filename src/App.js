@@ -4,7 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 const MyTextInput = (props) => {
   const { field, type } = props;
 
-  return <input {...field} type={type} placeholder={field.name} />;
+  return <input {...field} type={type} placeholder={"ENTER YOUR " + field.name} />;
 };
 
 function App() {
