@@ -8,24 +8,30 @@ describe('Use cypress react selector to test the form', () => {
   });
 
   it('log email field properties', () => {
-    cy.react('MyTextInput', { field: { name: 'email' } }).should(($input) => {
-      cy.log('react() is', $input);
-      expect($input).to.have.length(1);
+    cy.react('MyTextInput', { props: { field: { name: 'email' } } }).should(
+      ($input) => {
+        cy.log('react() is', $input);
+        expect($input).to.have.length(1);
 
-      let x = $input[0];
-      cy.log('x is', x);
-      cy.log('x.name is', x.name);
-      cy.log('x.placeholder is', x.placeholder);
-    });
+        let x = $input[0];
+        cy.log('x is', x);
+        cy.log('x.name is', x.name);
+        cy.log('x.placeholder is', x.placeholder);
+      }
+    );
   });
 
   it('enter data into the fields', () => {
-    cy.react('MyTextInput', { field: { name: 'email' } }).type(EMAILADDRESS);
-    cy.react('MyTextInput', { field: { name: 'password' } }).type(PASSWORD);
+    cy.react('MyTextInput', { props: { field: { name: 'email' } } }).type(
+      EMAILADDRESS
+    );
+    cy.react('MyTextInput', { props: { field: { name: 'password' } } }).type(
+      PASSWORD
+    );
   });
 
-  it('validate email field\'s properties', () => {
-    cy.getReact('MyTextInput', { field: { name: 'email' } })
+  it('validate email value prop runtime', () => {
+    cy.getReact('MyTextInput', { props: { field: { name: 'email' } } })
       .getProps('field.value')
       .should('eq', EMAILADDRESS);
   });
